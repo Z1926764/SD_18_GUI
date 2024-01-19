@@ -1,0 +1,29 @@
+body {
+    background-color: white;
+}
+
+a {
+    /* make links inherit the properties of the parent */
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+
+.top{
+    height: 10vh;
+}
+
+.graphs{
+    height: 70vh;
+}
+
+.bottom{
+    height: 10vh;
+}
+
+.supply_chart{
+    height:100%;
+}
+
+.control_chart{
+    height:100%;
+}

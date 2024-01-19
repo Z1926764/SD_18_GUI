@@ -1,0 +1,5 @@
+a {
+    /* make links inherit the properties of the parent */
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
