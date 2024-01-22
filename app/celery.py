@@ -1,4 +1,4 @@
-# django_celery/celery.py
+# django_celery/celery.py Hello, WORLD 0000000000000
 
 import os
 
