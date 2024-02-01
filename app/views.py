@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .tasks import get_pressure
+from app.models import PressurePoint
+import csv
 
 # Index is the default view that appears when starting the app
 def index(request):
@@ -17,5 +19,21 @@ def autoTest(request):
 def settings(request):
     return HttpResponse('you are now in the settings page')
 
-def menu(request):
-    return HttpResponse('you are now in the menu page')
+def data(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="data.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'time','pressure'])
+
+    data = PressurePoint.objects.all().values()
+    for d in data:
+        writer.writerow(d)
+
+    return response
+'''
+
+def data(request):
+    template = loader.get_template('data.html')
+    return HttpResponse(template.render())
+'''
