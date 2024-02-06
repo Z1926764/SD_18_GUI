@@ -3,6 +3,7 @@ from django.db import models
 class PressurePoint(models.Model):
     time = models.CharField(max_length=255)
     pressure = models.CharField(max_length=255)
+    switchState = models.CharField(max_length=255, null=True)
 
 class GlobalValues(models.Model):
     pMesDelta = models.DecimalField(decimal_places=6, max_digits=10, default=1.00)

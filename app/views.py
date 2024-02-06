@@ -27,8 +27,11 @@ def data(request):
     writer.writerow(['id', 'time','pressure'])
 
     data = PressurePoint.objects.all().values()
-    for d in data:
-        writer.writerow(d)
+    dataList = []
+
+    for row in data:
+        dataList = row.values()
+        writer.writerow(dataList)
 
     return response
 '''

@@ -1,4 +1,4 @@
-# django_celery/celery.py Hello, WORLD 0000000000000
+# django_celery/celery.py
 
 import os
 
@@ -17,6 +17,7 @@ app = Celery("app")
 app.config_from_object("django.conf:settings", namespace="CELERY")
 
 app.autodiscover_tasks()
+
 '''
 @app.task
 def chained_pressure_tasks(arg1, arg2):
@@ -40,7 +41,7 @@ app.conf.beat_schedule = {
         'args': (1,1),
     },
     '''
-    
+
     '''
     'chained-pressure-tasks': {
         'task': 'app.tasks.chained_pressure_tasks',

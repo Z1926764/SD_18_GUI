@@ -5,6 +5,8 @@ This project encompasses the UI portion of the design.
 - Celery is being used in conjuction with Redis to automate the pressure collection process and send the relevant data from Python to JavaScripts
 - Run the command `python manage.py runserver` within the project directory to begin the Django server locally and navigate to `localhost:8000` to interact with the UI
 - Run the command `python -m celery -A app worker --beat` within the project directory to begin the automated process of collecting and transferring pressure data
+- Run the command `sudo pigipod` to start the GPIO daemon which allows
+PWM signaling  
 
 # App Specifics
 ## Modifying the UI
