@@ -1,4 +1,6 @@
 from celery import shared_task
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 import datetime
 import RPi.GPIO as GPIO
 import board
@@ -58,6 +60,13 @@ def get_pressure(self, *args):
     # create a new entry within the PressurePoint table
     entry = PressurePoint(time=date_time, pressure=currentPressure, switchState=var2)
     entry.save() 
+
+    # realtime graphs
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        'graph_group',
+        {'type': 'update_graph', 'data': currentPressure}
+    )
     
     return currentPressure
 

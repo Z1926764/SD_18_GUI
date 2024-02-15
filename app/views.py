@@ -15,6 +15,10 @@ def autoTest(request):
     template = loader.get_template('autotest.html')
     return HttpResponse(template.render())
 
+def graph(request):
+    template = loader.get_template('graph.html')
+    return HttpResponse(template.render())
+
 # Settings view appears when user selects settings button
 def settings(request):
     return HttpResponse('you are now in the settings page')

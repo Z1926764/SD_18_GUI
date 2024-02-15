@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('autotest/', views.autoTest, name='autoTest'), # Path that lead to the auto test menu
     path('settings/', views.settings, name="settings"),
+    path('graph/', views.graph, name='graph'),
     path('data/', views.data, name="menu"),
 ]

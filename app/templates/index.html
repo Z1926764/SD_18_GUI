@@ -10,6 +10,19 @@
     </head>
 
     <body>
+        <script>
+            const socket = new WebSocket('ws://' + window.location.host + '/ws/index/');
+            console.log(socket)
+            socket.onmessage = function (event) {
+                const data = JSON.parse(event.data);
+                updateGraph(data.value);
+            };
+    
+            function updateGraph(value) {
+                // Your graph update logic here using a library like Chart.js, Plotly, etc.
+                console.log('Graph value:', value);
+            }
+        </script>
         <div class="container-fluid d-grid gap-3 h-100 d-flex border flex-column border">
             <div class="row header">
                 Header

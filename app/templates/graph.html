@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Graph</title>
+</head>
+<body>
+    <h1>Real-time Graph</h1>
+    <div id="graph-container"></div>
+
+    <script>
+        const socket = new WebSocket('ws://' + window.location.host + '/ws/graph/');
+
+        socket.onmessage = function (event) {
+            const data = JSON.parse(event.data);
+            updateGraph(data.value);
+        };
+
+        function updateGraph(value) {
+            // Your graph update logic here using a library like Chart.js, Plotly, etc.
+            console.log('Graph value:', value);
+        }
+    </script>
+</body>
