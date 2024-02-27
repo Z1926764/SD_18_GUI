@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .tasks import get_pressure
 from app.models import PressurePoint
 import csv
 
@@ -16,6 +15,7 @@ def autoTest(request):
     return HttpResponse(template.render())
 
 def graph(request):
+    #return render(request, 'graph.html')
     template = loader.get_template('graph.html')
     return HttpResponse(template.render())
 
